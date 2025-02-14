@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filigree</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+  </head>
+    <body>
+        <section class="section">
+            <div class="container">
+                <h1 class="title">
+                    Register
+                </h1>
+
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div id="navbarBasicExample" class="navbar-menu">
+            
+                        <a class="navbar-item" href="index.html">
+                        Home
+                        </a>
+            
+                        <a class="navbar-item" href="following.html">
+                        Following
+                        </a>
+            
+                        <a class="navbar-item" href="login.html">
+                        Login
+                        </a>
+
+                        <a class="navbar-item" href="register.html">
+                        Register
+                        </a>
+            
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <div class="register">
+                <form action="/register" method="post">
+
+                    <div class="field">
+                        <label class="label">First Name</label>
+                        <div class="control">
+                            <input class="input" type="text" name="firstname" placeholder="Enter your first name" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Last Name</label>
+                        <div class="control">
+                            <input class="input" type="text" name="lastname" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control">
+                            <input class="input" type="text" name="username" placeholder="Enter your username" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input class="input" type="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Confirm Password</label>
+                        <div class="control">
+                            <input class="input" type="password" name="confirm_password" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+
+
+    </body>
+</html>

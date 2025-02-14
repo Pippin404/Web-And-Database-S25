@@ -29,6 +29,10 @@
             <a class="navbar-item" href="login.html">
               Login
             </a>
+
+            <a class="navbar-item" href="register.html">
+              Register
+            </a>
   
         </div>
       </nav>
@@ -36,6 +40,32 @@
 
       <p class="post">This is where your posts live</p>
 
+
+      <div class="post">
+        <h2 class="postTitle">New Post</h2>
+        <form action="/submit-post" method="post">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" name="title" placeholder="Post title">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" name="content" placeholder="Write your post here"></textarea>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light" type="reset">Cancel</button>
+            </div>
+          </div>
+        </form>
+    </div>
 
 
     </div>
