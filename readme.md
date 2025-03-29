@@ -1,6 +1,6 @@
-# Erd, Relation image
+# Readme
 
-This project: put stuff here
+Filigree is a blogging website for all your reading needs. Review, Comment, and read with friends in this sleek and fast website.
 
 ![ERD Image](images/erd.png)
 
