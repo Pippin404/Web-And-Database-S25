@@ -42,19 +42,19 @@
 
         <section class="section">
             <div class="register">
-                <form action="/register" method="post">
+                <form action="/register" method="post" id="register">
 
                     <div class="field">
                         <label class="label">First Name</label>
                         <div class="control">
-                            <input class="input" type="text" name="firstname" placeholder="Enter your first name" required>
+                            <input class="input" type="text" name="firstname" id="fname" placeholder="Enter your first name" required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Last Name</label>
                         <div class="control">
-                            <input class="input" type="text" name="lastname" placeholder="Enter your last name" required>
+                            <input class="input" type="text" name="lastname" id="lname" placeholder="Enter your last name" required>
                         </div>
                     </div>
 
@@ -62,41 +62,41 @@
                     <div class="field">
                         <label class="label">Username</label>
                         <div class="control">
-                            <input class="input" type="text" name="username" placeholder="Enter your username" required>
+                            <input class="input" type="text" id="username" name="username" placeholder="Enter your username" required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control">
-                            <input class="input" type="email" name="email" placeholder="Enter your email" required>
+                            <input class="input" type="email" name="email" id="email" placeholder="Enter your email" required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Password</label>
                         <div class="control">
-                            <input class="input" type="password" name="password" placeholder="Enter your password" required>
+                            <input class="input" type="password" name="password" id="password" placeholder="Enter your password" required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Confirm Password</label>
                         <div class="control">
-                            <input class="input" type="password" name="confirm_password" placeholder="Confirm your password" required>
+                            <input class="input" type="password" name="confirm_password"  placeholder="Confirm your password" required>
                         </div>
                     </div>
 
                     <div class="field">
                         <div class="control">
-                            <button class="button is-primary" type="submit">Register</button>
+                            <button class="button is-primary" id="submit" type="submit">Register</button>
                         </div>
                     </div>
                 </form>
             </div>
         </section>
 
-
+        <script src="register.js"></script>
 
 
     </body>
