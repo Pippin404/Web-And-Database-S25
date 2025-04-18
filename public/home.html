@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Filigree</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="images/icon.ico" type="image/x-icon">
   </head>
   <body>
   <section class="section">
     <div class="container">
       <h1 class="title">
-        Login
+        Home
       </h1>
 
       <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -38,44 +38,56 @@
       </nav>
 
 
-      <div class="login" id="loginForm">
-        <form>
+      <p class="post">This is where your reviews live</p>
+
+
+      <div class="post">
+        <h2 class="postTitle">New Review</h2>
+        <form action="/submit-post" method="post" id="newReview">
+
+
           <div class="field">
-            <label class="label">Email</label>
             <div class="control">
-              <input class="input" type="Email" placeholder="Email" id="email">
+              <input class="input" type="text" name="title" placeholder="Title" id="title">
             </div>
           </div>
 
           <div class="field">
-            <label class="label">Password</label>
             <div class="control">
-              <input class="input" type="password" placeholder="Password" id="password">
+                <input class="input" type="number" name="rating" placeholder="Rating (1-10)" min="1" max="10" id="rating">
             </div>
           </div>
 
+
           <div class="field">
-            <div class="login-button">
-            
-                <button class="button is-link is-light" type="submit">LOGIN</button>
-
-
+            <div class="control">
+              <textarea class="textarea" name="content" placeholder="Write your post here" id="text"></textarea>
             </div>
+          </div>
+
+
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit" id="submit" >Submit</button>
+            </div>
+
+            <div class="control">
+              <button class="button is-link is-light" type="reset">Cancel</button>
+            </div>
+
+
+
           </div>
         </form>
-
-
-      </div>
-
-
+    </div>
 
 
     </div>
   </section>
 
 
-  <script src="login.js"></script>
-
+  <script src="index.js"></script>
 
   </body>
 </html>
