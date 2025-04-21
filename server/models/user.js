@@ -14,7 +14,8 @@ async function createTable() {
         username VARCHAR(50) NOT NULL UNIQUE,
         email VARCHAR(100) NOT NULL UNIQUE
     )`
-    await con.query(sql)  
+    await con.query(sql) 
+    
     }
 
 
@@ -23,6 +24,8 @@ createTable()
 
 // CRUD Operations. GET ALL!
 async function getAllUsers() {
+
+  //console.log("MYSQL Getting all users")
   let sql = `SELECT * FROM wdp_users`
   return await con.query(sql)
 }

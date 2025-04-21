@@ -14,9 +14,17 @@ router
   try {
     const users = await User.getAllUsers()
     res.send(users)
+    //console.log("routes getting users")
+
   } catch(err) {
     res.status(401).send({message: err.message})
   }
 })
+
+
+
+
+
+
 
 module.exports = router

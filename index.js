@@ -3,6 +3,7 @@ const app = express()
 app.use(express.json())
 
 const userRoutes = require("./server/routes/user")
+const reviewsRoutes = require("./server/routes/reviews")
 // const recipeRoutes = require("./server/routes/recipe") //<-- hoffman's
 
 //CORS middleware
@@ -14,7 +15,7 @@ app.use(function(req, res, next) {
 });
 
 app.use("/users", userRoutes)
-// 
+app.use("/reviews", reviewsRoutes)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!!`))
