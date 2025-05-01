@@ -8,6 +8,8 @@ const router = express.Router()
 
 router
 
+//CRUD ROUTES TO MAKE: Create, Read, Update, Delete
+
 
 //async to get all users. 
 .get('/getUsers', async (req, res) => {

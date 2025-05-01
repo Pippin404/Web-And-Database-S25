@@ -19,11 +19,14 @@ async function createReviewsTable() {
 createReviewsTable()
 
 
+//CRUD TO DO: Create, Read, Update, Delete
+
 // CRUD Operations. GET ALL!
 async function getAllReviews() {
     createReviewsTable()
     console.log("MYSQL Getting all reviews")
     let sql = `SELECT * FROM wdp_reviews`
+    
     return await con.query(sql)
 }
 

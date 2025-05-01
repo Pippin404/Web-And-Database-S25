@@ -22,6 +22,10 @@ async function createTable() {
 
 createTable()
 
+
+//CRUD TO DO: Create, Read, Update, Delete
+
+
 // CRUD Operations. GET ALL!
 async function getAllUsers() {
 
@@ -30,7 +34,49 @@ async function getAllUsers() {
   return await con.query(sql)
 }
 
+async function getUser(user) {
+  let sql = `
+    SELECT * FROM wdp_users 
+    WHERE username = '${user.username}'
+  `;
+  return await con.query(sql);
+}
 
+
+
+
+
+async function createUser(user){
+
+  let sql = `
+    INSERT INTO wdp_users (username, email)
+    VALUES ('${user.username}', '${user.email}')
+  `;
+
+  console.log("MYSQL Creating user: " + user.username + " " +  user.email)
+  return await con.query(sql);
+}
+
+
+async function updateUser(user){
+  let sql = `
+    UPDATE wdp_users 
+    SET username = '${user.username}', email = '${user.email}' 
+    WHERE id = ${user.id}
+  `;
+    return await con.query(sql);
+
+}
+
+
+async function deleteUser(user){
+  let sql = `
+    DELETE FROM wdp_users 
+    WHERE id = ${user.id}
+  `;
+
+  return await con.query(sql);
+}
 
 
 async function userExists(username) {
@@ -43,4 +89,4 @@ async function userExists(username) {
 
 // CREATE in CRUD - Registering a user
 
-module.exports = { getAllUsers }
+module.exports = { getAllUsers, createUser, updateUser, deleteUser, userExists, getUser }
