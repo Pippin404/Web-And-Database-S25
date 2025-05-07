@@ -1,5 +1,6 @@
 let loginForm = document.getElementById('register')
 loginForm.addEventListener('submit', registerFunction)
+import { fetchData } from "./main.js"
 
 function registerFunction(e) {
     e.preventDefault()
@@ -29,6 +30,23 @@ function registerFunction(e) {
     document.getElementById('email').value = ""
     document.getElementById('password').value = ""
   
-  }
+
+
+    fetchData("/users/register", user, "POST")
+    .then(data => {
+      if(!data.message) {
+        console.log("User created")
+        console.log(data)
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      
+    })
+
+
+
+    
+  }  
 
   //fname, lname, username, email, password

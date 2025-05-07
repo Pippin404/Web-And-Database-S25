@@ -23,7 +23,49 @@ router
   }
 })
 
+//GET SINGLE USER
+.get('/getUser', async (req, res) => {
+  try {
+    const users = await User.getUser()
+    res.send(users)
 
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
+
+//CREATE NEW USER
+.post('/register', async (req, res) => {
+  try {
+    const user = await User.createUser(req.body)
+    console.log("User creating in routes. /register")
+    res.send({user})
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
+
+
+.put('/update', async (req, res) => {
+  try {
+    console.log(req.body)
+    const user = await User.updateUser(req.body)
+    res.send({user})
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
+
+
+
+.delete('/deleteAccount', async (req, res) => {
+  try {
+    await User.deleteUser(req.body)
+    res.send({success: "User Deleted"})
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
 
 
 

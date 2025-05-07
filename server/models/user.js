@@ -23,7 +23,7 @@ async function createTable() {
 createTable()
 
 
-//CRUD TO DO: Create, Read, Update, Delete
+//CRUD TO DO: ALL DONE!!
 
 
 // CRUD Operations. GET ALL!
@@ -52,8 +52,7 @@ async function createUser(user){
     INSERT INTO wdp_users (username, email)
     VALUES ('${user.username}', '${user.email}')
   `;
-
-  console.log("MYSQL Creating user: " + user.username + " " +  user.email)
+  console.log("CREATING USER IN MODELS. Using mysql. ")
   return await con.query(sql);
 }
 
