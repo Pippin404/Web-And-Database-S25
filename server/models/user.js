@@ -23,17 +23,16 @@ async function createTable() {
 createTable()
 
 
-//CRUD TO DO: ALL DONE!!
 
 
-// CRUD Operations. GET ALL!
+//Get all
 async function getAllUsers() {
-
   //console.log("MYSQL Getting all users")
   let sql = `SELECT * FROM wdp_users`
   return await con.query(sql)
 }
 
+//get one
 async function getUser(user) {
   let sql = `
     SELECT * FROM wdp_users 
@@ -45,7 +44,7 @@ async function getUser(user) {
 
 
 
-
+//Create, and return it
 async function createUser(user){
 
   let sql = `
@@ -58,7 +57,7 @@ async function createUser(user){
   return cUser[0]
 }
 
-
+//Update
 async function updateUser(user){
   let sql = `
     UPDATE wdp_users 
@@ -69,7 +68,7 @@ async function updateUser(user){
 
 }
 
-
+//Delete
 async function deleteUser(user){
   let sql = `
     DELETE FROM wdp_users 
@@ -79,15 +78,13 @@ async function deleteUser(user){
   return await con.query(sql);
 }
 
-
-async function userExists(username) {
+//userExists
+async function userExists(user) {
   let sql = `
     SELECT * FROM wdp_users
-    WHERE Username="${username}"
+    WHERE Username="${user.username}"
   `
   return await con.query(sql)
 }
-
-// CREATE in CRUD - Registering a user
 
 module.exports = { getAllUsers, createUser, updateUser, deleteUser, userExists, getUser }
