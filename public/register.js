@@ -1,4 +1,5 @@
 import { fetchData } from "./main.js"
+import { setCurrentUser } from "./main.js"
 let loginForm = document.getElementById('register')
 loginForm.addEventListener('submit', registerFunction)
 

@@ -1,3 +1,6 @@
+import { fetchData } from "./main.js"
+import { setCurrentUser } from "./main.js"
+
 let loginForm = document.getElementById('loginForm')
 loginForm.addEventListener('submit', login)
 
@@ -11,6 +14,7 @@ function login(e) {
   
     const user = {
       email: email,
+      username: "",
       password: password
     }
     
@@ -20,4 +24,8 @@ function login(e) {
     document.getElementById('email').value = ""
     document.getElementById('password').value = ""
   
+
+    setCurrentUser(user);
+
+
   }
