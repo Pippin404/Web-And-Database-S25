@@ -49,11 +49,13 @@ async function getUser(user) {
 async function createUser(user){
 
   let sql = `
-    INSERT INTO wdp_users (username, email)
-    VALUES ('${user.username}', '${user.email}')
+    INSERT INTO wdp_users (username, email, password)
+    VALUES ('${user.username}', '${user.email}', '${user.password}')
   `;
-  console.log("CREATING USER IN MODELS. Using mysql. ")
-  return await con.query(sql);
+  await con.query(sql) //CREATE USER IN MYSQL
+  console.log("CREATING USER IN MODELS. Using mysql. " + user.username + " " + user.email)
+  const cUser = await getUser(user) //RETRUVE USER
+  return cUser[0]
 }
 
 

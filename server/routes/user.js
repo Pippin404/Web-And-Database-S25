@@ -39,7 +39,7 @@ router
   try {
     const user = await User.createUser(req.body)
     console.log("User creating in routes. /register")
-    res.send({user})
+    res.send(user) //REMOVED THE {}
   } catch(err) {
     res.status(401).send({message: err.message})
   }
@@ -50,7 +50,7 @@ router
   try {
     console.log(req.body)
     const user = await User.updateUser(req.body)
-    res.send({user})
+    res.send(user)
   } catch(err) {
     res.status(401).send({message: err.message})
   }
