@@ -43,12 +43,12 @@ async function getUsersReviews(user) {
 
 
 //CREATE
-async function createReview(user, review){
+async function createReview(review){
     let sql = `
     INSERT INTO wdp_reviews (user_id, rating, review_text)
-    VALUES ('${user.user_id}', '${review.rating}', '${review.review_text}')
+    VALUES ('${review.user_id}', '${review.rating}', '${review.review_text}')
     `;
-    console.log("CREATING REVIEW IN MODELS. Using mysql. " + user.user_id + " " + review.rating + " " + review.review_text)
+    console.log("CREATING REVIEW IN MODELS. Using mysql. " + review.user_id + " " + review.rating + " " + review.review_text)
     await con.query(sql)
   }
   
@@ -68,6 +68,7 @@ async function createReview(user, review){
   `;
     console.log("UPDATING REVIEW IN MODELS. Using mysql. " + review.id + " " + review.rating + " " + review.review_text)
     await con.query(sql)
+    //return something??
   }
   
   //DELETE!!
@@ -78,6 +79,7 @@ async function createReview(user, review){
   `;
     console.log("DELETING REVIEW IN MODELS. Using mysql. " + review.id)
     await con.query(sql)
+    //return something??
   }
 
 

@@ -8,24 +8,64 @@ const router = express.Router()
 
 router
 
-//CRUD ROUTES TO MAKE: Create, Read, Update, Delete
+//CRUD BACKEND DONE AND TESTED: getReviews, getUsersReviews, createReview
 
 //async to get all reviews. 
 .get('/getReviews', async (req, res) => {
   try {
+    console.log("get review in routes!")
 
-    console.log("Attempt for models.js to get reviews")
     const returnReviews = await Reviews.getAllReviews()
     res.send(returnReviews)
-    console.log(req.body)
+    //console.log(req.body)
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
 
+.get('/getUsersReviews', async (req, res) => {
+  try {
+    console.log("get User review in routes!")
+
+    const returnReviews = await Reviews.getUsersReviews(req.body)
+    res.send(returnReviews)
+    //console.log(req.body)
   } catch(err) {
     res.status(401).send({message: err.message})
   }
 })
 
 
+.post('/createReview', async (req, res) => {
+  try {
+      //console.log("creating review in routes!" + req.body)
+      const newReview = await Reviews.createReview(req.body)
+      res.send(newReview) 
+    } catch(err) {
+      res.status(401).send({message: err.message})
+    }
+})
 
+
+.put('/updateReview', async (req, res) => {
+  try {
+    console.log("updating review in routes!" + req.body)
+    const updatedReview = await Reviews.updateReview(req.body)
+    res.send(updatedReview) 
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
+
+.delete('/deleteReview', async (req, res) => {
+  try {
+    console.log("deleting review in routes!" + req.body)
+    const deletedReview = await Reviews.deleteReview(req.body)
+    res.send(deletedReview) 
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
 
 
 
