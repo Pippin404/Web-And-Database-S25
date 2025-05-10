@@ -8,10 +8,10 @@ const router = express.Router()
 
 router
 
-//CRUD ROUTES TO MAKE: Create, Read, Update, Delete
 
+//CRUD TESTED: getUsers, getUser, Register. (backend w/ postman)
 
-//async to get all users. 
+//GET ALL USERS
 .get('/getUsers', async (req, res) => {
   try {
     const users = await User.getAllUsers()
@@ -26,8 +26,9 @@ router
 //GET SINGLE USER
 .get('/getUser', async (req, res) => {
   try {
-    const users = await User.getUser()
+    const users = await User.getUser(req.body)
     res.send(users)
+    console.log("routes getting user")
 
   } catch(err) {
     res.status(401).send({message: err.message})
@@ -40,12 +41,13 @@ router
     const user = await User.createUser(req.body)
     console.log("User creating in routes. /register")
     res.send(user) //REMOVED THE {}
+    //returned the user created!! :D
   } catch(err) {
     res.status(401).send({message: err.message})
   }
 })
 
-
+//UPDATE USER
 .put('/update', async (req, res) => {
   try {
     console.log(req.body)
@@ -57,7 +59,7 @@ router
 })
 
 
-
+//DELETE USER 
 .delete('/deleteAccount', async (req, res) => {
   try {
     await User.deleteUser(req.body)

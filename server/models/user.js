@@ -34,9 +34,10 @@ async function getAllUsers() {
 
 //get one
 async function getUser(user) {
+  //console.log("MYSQL Getting user " + user.id)
   let sql = `
     SELECT * FROM wdp_users 
-    WHERE username = '${user.username}'
+    WHERE id = '${user.id}'
   `;
   return await con.query(sql);
 }
