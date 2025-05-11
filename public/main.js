@@ -88,7 +88,10 @@ if(!getCurrentUser()){
               Register
             </a>
 
-            <a class="navbar-item" id="logoutBttn" href="login.html">
+          
+
+
+            <a class="navbar-item" id="logoutBttn" href="login.html" style="margin-left: auto;">
               Logout
             </a>
 

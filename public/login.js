@@ -25,6 +25,9 @@ function login(e) {
     document.getElementById('password').value = ""
   
 
+    //CHECK IF USER EXISTS IN MYSQL
+
+
     setCurrentUser(user);
     window.location.href = "home.html";
 

@@ -44,8 +44,8 @@ function registerFunction(e) {
       })
 
 
-
-
+      setCurrentUser(user);
+      window.location.href = "home.html";
 
     
   }  
