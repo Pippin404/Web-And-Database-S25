@@ -31,14 +31,44 @@ export function getCurrentUser() {
 
 export function removeCurrentUser() {
   localStorage.removeItem('user')
-  window.location.href = "index.html"
+  window.location.href = "main.html"
 }
 
 
 
 //----------------------------------------------------------------
 //NAVBAR!
-document.getElementById("ExportedNav").innerHTML=`
+const mainNav=document.getElementById("ExportedNav")
+
+
+//No logged in
+if(!getCurrentUser()){
+      mainNav.innerHTML=`
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div id="navbarBasicExample" class="navbar-menu">
+        
+                  <a class="navbar-item" href="home.html">
+                    Home
+                  </a>
+        
+                  <a class="navbar-item" href="following.html">
+                    Following
+                  </a>
+        
+                  <a class="navbar-item" href="login.html">
+                    Login
+                  </a>
+
+                  <a class="navbar-item" href="register.html">
+                    Register
+                  </a>
+        
+              </div>
+            </nav>
+      `
+    
+}else{
+  mainNav.innerHTML=`
   <nav class="navbar" role="navigation" aria-label="main navigation">
         <div id="navbarBasicExample" class="navbar-menu">
   
@@ -57,7 +87,27 @@ document.getElementById("ExportedNav").innerHTML=`
             <a class="navbar-item" href="register.html">
               Register
             </a>
+
+            <a class="navbar-item" id="logoutBttn" href="login.html">
+              Logout
+            </a>
+
   
         </div>
       </nav>
 `
+}
+
+
+ // Now attach the logout event handler
+ const logout = document.getElementById("logoutBttn");
+ if (logout) {
+   logout.addEventListener("click", function (e) {
+     e.preventDefault();
+     removeCurrentUser();
+     window.location.href = "home.html";
+   });
+ }else{
+  console.log("No logout button found");
+
+}

@@ -1,9 +1,6 @@
-import { setCurrentUser, getCurrentUser } from "./main"
+import { setCurrentUser, getCurrentUser } from "./main.js"
 let loginForm = document.getElementById('newReview')
 loginForm.addEventListener('submit', newPost)
-
-document.getElementById("message").innerHTML = "<strong>Hello!</strong>";
-
 
 
 function newPost(e) {
