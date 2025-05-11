@@ -15,27 +15,15 @@
         Home
       </h1>
 
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div id="navbarBasicExample" class="navbar-menu">
-  
-            <a class="navbar-item" href="home.html">
-              Home
-            </a>
-  
-            <a class="navbar-item" href="following.html">
-              Following
-            </a>
-  
-            <a class="navbar-item" href="login.html">
-              Login
-            </a>
+      <div id="ExportedNav"></div>
 
-            <a class="navbar-item" href="register.html">
-              Register
-            </a>
+
+
+
   
-        </div>
-      </nav>
+
+
+
 
 
       <p class="post">This is where your reviews live</p>
@@ -44,13 +32,6 @@
       <div class="post">
         <h2 class="postTitle">New Review</h2>
         <form action="/submit-post" method="post" id="newReview">
-
-
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" name="title" placeholder="Title" id="title">
-            </div>
-          </div>
 
           <div class="field">
             <div class="control">
@@ -91,6 +72,8 @@
       <li>Reviews Frontend (CRUD)</li>
     </ol>
 
+    <br>
+
       <ol>
         <li>Homepage displays all of users posts, from local storage. None if null</li>
         <li>Can create a new review if logged in</li>
@@ -108,6 +91,6 @@
 
 
   <script type="module" src="home.js"></script>
-
+  <script type="module" src="main.js"></script>
   </body>
 </html>

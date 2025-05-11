@@ -26,6 +26,7 @@ function login(e) {
   
 
     setCurrentUser(user);
+    window.location.href = "home.html";
 
 
   }

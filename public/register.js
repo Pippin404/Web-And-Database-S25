@@ -40,7 +40,7 @@ function registerFunction(e) {
         }
       })
       .catch(err => {
-        errorSection.innerText = `${err.message}`
+        console.error("Error registering user:", err)
       })
 
 
