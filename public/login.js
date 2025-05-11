@@ -1,5 +1,4 @@
-import { fetchData } from "./main.js"
-import { setCurrentUser } from "./main.js"
+import { fetchData, getCurrentUser, removeCurrentUser, setCurrentUser } from "./main.js"
 
 let loginForm = document.getElementById('loginForm')
 loginForm.addEventListener('submit', login)
@@ -12,9 +11,9 @@ function login(e) {
   
     
   
-    const user = {
+    let user = {
       email: email,
-      username: "",
+      username: "USER'S NAME HERE",
       password: password
     }
     
@@ -26,10 +25,33 @@ function login(e) {
   
 
     //CHECK IF USER EXISTS IN MYSQL
+    fetchData("/users/getUser", user, "POST")
+      .then(data => {
+        if(!data.message) {
 
 
-    setCurrentUser(user);
-    window.location.href = "home.html";
+          user= data[0]
+          
+
+          if(user==undefined){
+            let error = document.getElementById('errorSection')
+            error.innerHTML = `<p style="color: red;">User Does not Exist</p>`
+            removeCurrentUser()
+    
+          }else{
+            console.log(user)
+            setCurrentUser(user);
+            window.location.href = "home.html";
+          }
+
+
+        }
+      })
+      .catch(err => {
+        console.error("Error logging in:", err)
+      })
+
+      
 
 
   }

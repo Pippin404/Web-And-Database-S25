@@ -31,13 +31,16 @@ export function getCurrentUser() {
 
 export function removeCurrentUser() {
   localStorage.removeItem('user')
-  window.location.href = "main.html"
 }
 
 
 
 //----------------------------------------------------------------
 //NAVBAR!
+
+
+
+
 const mainNav=document.getElementById("ExportedNav")
 
 

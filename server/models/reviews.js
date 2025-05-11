@@ -23,7 +23,7 @@ createReviewsTable()
 //READ
 async function getAllReviews() {
     createReviewsTable()
-    console.log("MYSQL Getting all reviews")
+    //console.log("MYSQL Getting all reviews")
     let sql = `SELECT * FROM wdp_reviews`
     
     return await con.query(sql)
@@ -37,7 +37,9 @@ async function getUsersReviews(user) {
     WHERE user_id = '${user.id}'
     `;
     console.log("MYSQL Getting all reviews for user " + user.id)
-    return await con.query(sql)    
+    const [rows] = await con.query(sql);
+    
+    return rows;
 
 }
 
@@ -48,7 +50,7 @@ async function createReview(review){
     INSERT INTO wdp_reviews (user_id, rating, review_text)
     VALUES ('${review.user_id}', '${review.rating}', '${review.review_text}')
     `;
-    console.log("CREATING REVIEW IN MODELS. Using mysql. " + review.user_id + " " + review.rating + " " + review.review_text)
+    //console.log("CREATING REVIEW IN MODELS. Using mysql. " + review.user_id + " " + review.rating + " " + review.review_text)
     await con.query(sql)
   }
   
@@ -66,7 +68,7 @@ async function createReview(review){
     SET rating = '${review.rating}', review_text = '${review.review_text}'
     WHERE id = '${review.id}'
   `;
-    console.log("UPDATING REVIEW IN MODELS. Using mysql. " + review.id + " " + review.rating + " " + review.review_text)
+    //console.log("UPDATING REVIEW IN MODELS. Using mysql. " + review.id + " " + review.rating + " " + review.review_text)
     await con.query(sql)
     //return something??
   }
@@ -77,7 +79,7 @@ async function createReview(review){
     DELETE FROM wdp_reviews 
     WHERE id = '${review.id}'
   `;
-    console.log("DELETING REVIEW IN MODELS. Using mysql. " + review.id)
+    //console.log("DELETING REVIEW IN MODELS. Using mysql. " + review.id)
     await con.query(sql)
     //return something??
   }

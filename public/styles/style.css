@@ -9,6 +9,20 @@ Register form
 Navbar
 */
 
+.welcometxt{
+    font-size: 30px;
+    color: rgb(231, 0, 154);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post-container {
+    display: flex;
+    flex-wrap: wrap; /* Optional: allows posts to wrap on smaller screens */
+    justify-content: space-between; /* Adjusts spacing */
+}
+
 .post {
     border: 5px solid rgb(153 225 217);
     border-radius: 5px;

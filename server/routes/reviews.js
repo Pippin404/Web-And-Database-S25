@@ -13,7 +13,7 @@ router
 //async to get all reviews. 
 .get('/getReviews', async (req, res) => {
   try {
-    console.log("get review in routes!")
+    //console.log("get review in routes!")
 
     const returnReviews = await Reviews.getAllReviews()
     res.send(returnReviews)
@@ -25,7 +25,7 @@ router
 
 .get('/getUsersReviews', async (req, res) => {
   try {
-    console.log("get User review in routes!")
+    //console.log("get User review in routes!")
 
     const returnReviews = await Reviews.getUsersReviews(req.body)
     res.send(returnReviews)
@@ -49,7 +49,7 @@ router
 
 .put('/updateReview', async (req, res) => {
   try {
-    console.log("updating review in routes!" + req.body)
+    //console.log("updating review in routes!" + req.body)
     const updatedReview = await Reviews.updateReview(req.body)
     res.send(updatedReview) 
   } catch(err) {
@@ -59,7 +59,7 @@ router
 
 .delete('/deleteReview', async (req, res) => {
   try {
-    console.log("deleting review in routes!" + req.body)
+    //console.log("deleting review in routes!" + req.body)
     const deletedReview = await Reviews.deleteReview(req.body)
     res.send(deletedReview) 
   } catch(err) {

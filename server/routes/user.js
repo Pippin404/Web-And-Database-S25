@@ -24,11 +24,11 @@ router
 })
 
 //GET SINGLE USER
-.get('/getUser', async (req, res) => {
+.post('/getUser', async (req, res) => {
   try {
     const users = await User.getUser(req.body)
     res.send(users)
-    console.log("routes getting user")
+    //console.log("routes getting user")
 
   } catch(err) {
     res.status(401).send({message: err.message})
@@ -39,7 +39,7 @@ router
 .post('/register', async (req, res) => {
   try {
     const user = await User.createUser(req.body)
-    console.log("User creating in routes. /register")
+    //console.log("User creating in routes. /register")
     res.send(user) //REMOVED THE {}
     //returned the user created!! :D
   } catch(err) {
@@ -50,7 +50,7 @@ router
 //UPDATE USER
 .put('/update', async (req, res) => {
   try {
-    console.log(req.body)
+    //console.log(req.body)
     const user = await User.updateUser(req.body)
     res.send(user)
   } catch(err) {

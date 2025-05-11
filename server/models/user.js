@@ -38,7 +38,7 @@ async function getUser(user) {
   //console.log("MYSQL Getting user " + user.id)
   let sql = `
     SELECT * FROM wdp_users 
-    WHERE id = '${user.id}'
+    WHERE email = '${user.email}'
   `;
   return await con.query(sql);
 }
@@ -54,7 +54,7 @@ async function createUser(user){
     VALUES ('${user.username}', '${user.email}', '${user.password}')
   `;
   await con.query(sql) //CREATE USER IN MYSQL
-  console.log("CREATING USER IN MODELS. Using mysql. " + user.username + " " + user.email)
+  //console.log("CREATING USER IN MODELS. Using mysql. " + user.username + " " + user.email)
   const cUser = await getUser(user) //RETRUVE USER
   return cUser[0]
 }
