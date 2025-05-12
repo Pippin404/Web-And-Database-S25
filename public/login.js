@@ -28,23 +28,16 @@ function login(e) {
     fetchData("/users/getUser", user, "POST")
       .then(data => {
         if(!data.message) {
-
-
           user= data[0]
-          
-
           if(user==undefined){
             let error = document.getElementById('errorSection')
             error.innerHTML = `<p style="color: red;">User Does not Exist</p>`
             removeCurrentUser()
-    
           }else{
             console.log(user)
             setCurrentUser(user);
             window.location.href = "home.html";
           }
-
-
         }
       })
       .catch(err => {

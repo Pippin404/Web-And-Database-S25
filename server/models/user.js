@@ -40,7 +40,12 @@ async function getUser(user) {
     SELECT * FROM wdp_users 
     WHERE email = '${user.email}'
   `;
-  return await con.query(sql);
+  const ret = await con.query(sql);
+  console.log(ret)
+  if (ret.length === 0) {
+    throw new Error("User not found")
+  }
+  return ret;
 }
 
 

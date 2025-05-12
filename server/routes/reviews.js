@@ -23,11 +23,14 @@ router
   }
 })
 
-.get('/getUsersReviews', async (req, res) => {
+.post('/getUsersReviews', async (req, res) => {
   try {
     //console.log("get User review in routes!")
 
     const returnReviews = await Reviews.getUsersReviews(req.body)
+    //console.log(returnReviews);
+    
+
     res.send(returnReviews)
     //console.log(req.body)
   } catch(err) {
@@ -40,7 +43,7 @@ router
   try {
       //console.log("creating review in routes!" + req.body)
       const newReview = await Reviews.createReview(req.body)
-      res.send(newReview) 
+      res.status(201).json({ success: true, review: newReview || null }); 
     } catch(err) {
       res.status(401).send({message: err.message})
     }

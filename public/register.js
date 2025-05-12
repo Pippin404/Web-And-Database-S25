@@ -15,7 +15,7 @@ function registerFunction(e) {
     let password = document.getElementById('password').value
   
     
-    const user = {
+    let user = {
       username: username,
       email: email,
       password: password
@@ -29,23 +29,29 @@ function registerFunction(e) {
     document.getElementById('email').value = ""
     document.getElementById('password').value = ""
   
+    let error = document.getElementById('error')
+    error.style.color = "red";
 
 
     fetchData("/users/register", user, "POST")
       .then(data => {
         if(!data.message) {
+          console.log("here is the new user" + data);
           console.log("User registered successfully")
-          setCurrentUser(data)
-          window.location.href = "home.html"
+
+
+          setCurrentUser(data);
+          //console.log(user);
+          window.location.href = "home.html";
+
+
         }
       })
       .catch(err => {
         console.error("Error registering user:", err)
+        error.innerHTML = "Error: " + err.message
       })
 
-
-      setCurrentUser(user);
-      window.location.href = "home.html";
 
     
   }  

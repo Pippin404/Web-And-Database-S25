@@ -28,8 +28,6 @@ router
   try {
     const users = await User.getUser(req.body)
     res.send(users)
-    //console.log("routes getting user")
-
   } catch(err) {
     res.status(401).send({message: err.message})
   }
